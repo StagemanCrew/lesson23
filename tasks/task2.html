@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css?family=Gabriela:regular" rel="stylesheet" />
+    <style>
+        body{
+            font-family: 'Gabriela';
+        }
+        h4{
+            color: blue;
+            filter: drop-shadow(1px 1px 0px yellow);
+        }
+    </style>
+    <title>task-2</title>
+</head>
+<body>
+    <h5>
+        Дано рядок тексту.<br>
+            - Вивести усі числа, які є у тексті.<br>
+            - Знайти усі знаки пунктуації, які були використано.<br>
+            - Вивести усі складові, які розділені розділовими знаками.<br>
+            - Перевірити, чи містить він дату у форматі dd.mm.yyyy (dd- день, mm- місяць, yyyy- рік).<br>
+            - Підрахувати кількість двоцифрових чисел у рядку.
+    </h5>
+
+    <script>
+
+        // Заданий рядок тексту
+        let text = "Це текст із числами 1! 2? 3; та 456. Також маємо дати 12-09-2023, 2023-12-09. Тут є слова, розділені знаками."
+        document.write(`<h3>${text}</h3>`)
+
+        // Вивести усі числа, які є у тексті
+        let numbers = text.match(/\d+/g)
+        document.write("<h4>Усі числа у тексті:</h4>")
+        if (numbers) {
+            numbers.forEach((number) => {
+                document.write(`${number} `)
+            })
+        }
+
+        // Знайти усі знаки пунктуації, які були використано
+        let punctuation = text.match(/[.,!?]/g)
+        document.write("<h4>Знаки пунктуації:</h4>")
+        if (punctuation) {
+            punctuation.forEach((punct) => {
+                document.write(`${punct} `)
+            })
+        }
+
+        // Вивести усі складові, які розділені розділовими знаками
+        let words = text.split(/\s+|[.,!?]/).filter(word => word !== "")
+        document.write("<h4>Розділені слова:</h4>")
+        words.forEach((word) => {
+        document.write(`${word} `)
+        })
+
+        // Перевірити, чи містить він дату у форматі dd.mm.yyyy
+        let datePattern = /\d{2}.\d{2}.\d{4}/
+        let containsDate = datePattern.test(text)
+        document.write("<h4>Містить дату у форматі dd.mm.yyyy:</h4>")
+        document.write(`${containsDate ? "Так" : "Ні"} `)
+
+        // Підрахувати кількість двоцифрових чисел у рядку
+        let twoDigitNumbers = text.match(/\b\d{2}\b/g)
+        let countTwoDigitNumbers = twoDigitNumbers ? twoDigitNumbers.length : 0
+        document.write("<h4>Кількість двоцифрових чисел у тексті:</h4>")
+        document.write(`${countTwoDigitNumbers} `)
+
+    </script>
+</body>
+</html>

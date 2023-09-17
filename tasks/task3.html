@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css?family=Gabriela:regular" rel="stylesheet" />
+    <style>
+        body{
+            font-family: 'Gabriela';
+        }
+    </style>
+    <title>task-3</title>
+</head>
+<body>
+    <h3>
+        Визначити чи може бути рядок тексту номером банківської картки (приклад: «4142-3433-2323-3434»). Знайти усі такі номери.
+    </h3>
+
+    <script>
+
+        let text = "Тут є номери: 1234-5678-9101-1123, +38-067-610-38-38, 4142 3433 2323 3434 і 3211101987654321, а також ще один: 9876543210987."
+        document.write(`<h4> ${text} </h4>`)
+
+        // Регулярний вираз для пошуку номерів банківських карток
+        let cardNumberPattern = /\b(\d{4}-\d{4}-\d{4}-\d{4}|\d{4} \d{4} \d{4} \d{4}|\d{16})\b/g
+
+        // Знайти всі номери карток у тексті
+        let cardNumbers = text.match(cardNumberPattern)
+
+        if (cardNumbers) {
+            document.write("<h3>Знайдені можливі номери карток:</h3>")
+            cardNumbers.forEach((cardNumber) => {
+                document.write(`<h4>${cardNumber} </h4>`)
+            })
+        } else {
+            document.write("<h3>Номери карток не знайдені.</h3>")
+        }
+
+    </script>
+</body>
+</html>

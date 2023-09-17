@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css?family=Gabriela:regular" rel="stylesheet" />
+    <style>
+        body{
+            font-family: 'Gabriela';
+        }
+    </style>
+    <link rel="stylesheet" href="css/style.css">
+    <title>task-9</title>
+</head>
+<body>
+    <h3>
+        Користувач вводить день (номер дня (1-7) або «mon,tue,wed,thu,fri,sat,sun»). Визначити, чи є цей день вихідним.
+    </h3>
+
+    <script>
+
+        // День від користувача
+        let userInput = prompt('Введіть номер дня (1-7) або скорочену англійську назву дня (sun, mon, tue, wed, thu, fri, sat).')
+
+        // Нижній регістр для порівняння
+        let userInputLowercase = userInput.toLowerCase()
+
+        // Чи є день вихідним
+        if (userInputLowercase === 'sat' || userInputLowercase === 'sun' || userInputLowercase === '6' || userInputLowercase === '7') {
+            document.write(`<h3> ${userInput}: Це вихідний день.</h3>`)
+        } else {
+            document.write(`<h3>${userInput}: Це робочій день.</h3>`)
+        }
+
+    </script>
+
+</body>
+</html>

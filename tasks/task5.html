@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css?family=Gabriela:regular" rel="stylesheet" />
+    <style>
+        body{
+            font-family: 'Gabriela';
+        }
+        span{
+            color: blue;
+        }
+    </style>
+    <title>task-5</title>
+</head>
+<body>
+    <h3>
+        Вибрати усі роки після 2021 року з отриманого повідомлення.
+    </h3>
+
+    <script>
+
+        let message = "Зараз 2023 рік. Мінулі роки: 2020, 2021 та 2022."
+
+        // Всіх можливі роки (4 цифри)
+        let yearPattern = /\b\d{4}\b/g
+
+        // Всі роки у тексті
+        let years = message.match(yearPattern)
+
+        document.write(`<h3><span>Отримане повідомлення:</span> ${message}</h3>`)
+        document.write("<h4>Роки після 2021:</h4>")
+
+        if (years) {
+            // Відфільтруємо ті, які більше за 2021
+            const yearsAfter2021 = years.filter((year) => parseInt(year) > 2021)
+
+            if (yearsAfter2021.length > 0) {
+                yearsAfter2021.forEach((year) => {
+                    document.write(`<h3>${year} рік.</h3>`)
+                })
+            } else {
+                document.write("<h3>Роки після 2021 не знайдено.</h3>")
+            }
+        } else {
+            document.write("<h3>Років не знайдено в тексті.</h3>")
+        }
+
+    </script>
+</body>
+</html>
